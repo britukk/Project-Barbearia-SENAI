@@ -100,11 +100,16 @@ src
 Essa organização separa responsabilidades da aplicação, facilitando manutenção e escalabilidade.
 
 🚀 Como Executar o Projeto
+
 1️⃣ Clonar o repositório
 git clone https://github.com/britukk/Project-Barbearia-SENAI.git
+
 2️⃣ Entrar na pasta do projeto
 cd Project-Barbearia-SENAI
+
 3️⃣ Executar o projeto
+
+OBS: o nome do database é "barbearia"
 
 Se estiver usando Maven:
 
