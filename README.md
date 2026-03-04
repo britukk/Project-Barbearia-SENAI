@@ -1,6 +1,6 @@
-# ⚠️⚠️README feito inteiramente por IA⚠️⚠️
+#💈 Sistema de Barbearia - Spring Boot
 
-💈 Sistema de Barbearia - Spring Boot
+⚠️⚠️README feito inteiramente por IA⚠️⚠️
 
 Projeto desenvolvido utilizando Java + Spring Boot para simular o funcionamento de um sistema de gerenciamento de uma barbearia.
 
