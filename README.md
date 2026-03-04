@@ -1,4 +1,4 @@
-#💈 Sistema de Barbearia - Spring Boot
+# 💈 Sistema de Barbearia - Spring Boot
 
 ⚠️⚠️README feito inteiramente por IA⚠️⚠️
 
