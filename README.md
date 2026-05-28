@@ -8,7 +8,7 @@ O sistema permite que barbeiros gerenciem agendamentos, cortes disponíveis e co
 
 Este projeto foi desenvolvido como parte de estudos em desenvolvimento backend com Spring Boot.
 
-📌 Funcionalidades
+## 📌 Funcionalidades
 
 O sistema atualmente possui as seguintes funcionalidades:
 
@@ -16,14 +16,14 @@ O sistema atualmente possui as seguintes funcionalidades:
 
 O sistema possui um login exclusivo para barbeiros que permite acessar as funcionalidades administrativas.
 
-⚠️ Credenciais padrão do barbeiro:
+## ⚠️ Credenciais padrão do barbeiro:
 
 Usuário: admin
 Senha: 123
 
 Observação: O login para clientes/usuários ainda não foi implementado, mas está planejado para futuras versões.
 
-📅 Agendamento de Cortes
+## 📅 Agendamento de Cortes
 
 Os barbeiros podem visualizar e gerenciar agendamentos de cortes, permitindo organizar melhor o atendimento aos clientes.
 
@@ -35,7 +35,7 @@ Visualizar horários marcados
 
 Organizar agenda de atendimentos
 
-✂️ Cadastro de Cortes Personalizados
+## ✂️ Cadastro de Cortes Personalizados
 
 O sistema permite que o barbeiro adicione novos tipos de cortes ao sistema.
 
@@ -49,7 +49,7 @@ Corte na tesoura
 
 Cortes personalizados criados pelo barbeiro
 
-📋 Menu de Cortes Disponíveis
+## 📋 Menu de Cortes Disponíveis
 
 Existe um menu onde é possível visualizar todos os cortes disponíveis na barbearia.
 
@@ -81,7 +81,7 @@ Banco de dados H2 / JPA
 
 O Spring Boot é um framework Java muito utilizado para criação de aplicações web e APIs de forma rápida e organizada.
 
-📂 Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 A aplicação segue uma estrutura comum de projetos Spring Boot:
 
@@ -99,7 +99,7 @@ src
 
 Essa organização separa responsabilidades da aplicação, facilitando manutenção e escalabilidade.
 
-🚀 Como Executar o Projeto
+## 🚀 Como Executar o Projeto
 
 1️⃣ Clonar o repositório
 git clone https://github.com/britukk/Project-Barbearia-SENAI.git
@@ -119,7 +119,7 @@ Ou execute a classe principal do projeto pela sua IDE (IntelliJ / Eclipse / VSCo
 
 4️⃣ Acessar no navegador
 http://localhost:8080
-🔮 Melhorias Futuras
+## 🔮 Melhorias Futuras
 
 Algumas melhorias planejadas para o projeto:
 
@@ -135,7 +135,7 @@ Algumas melhorias planejadas para o projeto:
 
 📧 Notificações de agendamento
 
-🎓 Objetivo do Projeto
+## 🎓 Objetivo do Projeto
 
 Este projeto foi criado com o objetivo de:
 
@@ -149,7 +149,7 @@ Implementar sistema de login
 
 Simular um sistema real de gerenciamento de barbearia
 
-👨‍💻 Autor
+## 👨‍💻 Autor
 
 Projeto desenvolvido por João Pedro de Brito, Gustavo Alves dos Reis e principalmente por Luis Guilherme Carvalho Valadares para fins de estudo e aprendizado em desenvolvimento backend com Spring Boot.
 Links:
