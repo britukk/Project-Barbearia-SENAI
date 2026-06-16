@@ -85,17 +85,19 @@ O Spring Boot é um framework Java muito utilizado para criação de aplicaçõe
 
 A aplicação segue uma estrutura comum de projetos Spring Boot:
 
+```text
 src
- └─ main
-     ├─ java
-     │   └─ controllers
-     │   └─ services
-     │   └─ repositories
-     │   └─ models
-     └─ resources
-         └─ templates
-         └─ static
-         └─ application.properties
+ └── main
+     ├── java
+     │   └── controllers
+     │   └── services
+     │   └── repositories
+     │   └── models
+     └── resources
+         └── templates
+         └── static
+         └── application.properties
+```
 
 Essa organização separa responsabilidades da aplicação, facilitando manutenção e escalabilidade.
 
