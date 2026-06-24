@@ -1,6 +1,6 @@
 # 💈 Sistema de Barbearia - Spring Boot
 
-⚠️⚠️README feito inteiramente por IA⚠️⚠️
+⚠️⚠️ README feito inteiramente por IA e aprimorado com base em testes reais ⚠️⚠️
 
 Projeto desenvolvido utilizando Java + Spring Boot para simular o funcionamento de um sistema de gerenciamento de uma barbearia.
 
@@ -12,74 +12,45 @@ Este projeto foi desenvolvido como parte de estudos em desenvolvimento backend c
 
 O sistema atualmente possui as seguintes funcionalidades:
 
-🔐 Sistema de Login (Barbeiro)
-
+🔐 **Sistema de Login (Barbeiro)**
 O sistema possui um login exclusivo para barbeiros que permite acessar as funcionalidades administrativas.
 
-## ⚠️ Credenciais padrão do barbeiro:
+> **⚠️ Credenciais padrão do barbeiro:**
+> Usuário: `admin`
+> Senha: `123`
+> 
+> *Observação: O login para clientes/usuários ainda não foi implementado, mas está planejado para futuras versões.*
 
-Usuário: admin
-Senha: 123
-
-Observação: O login para clientes/usuários ainda não foi implementado, mas está planejado para futuras versões.
-
-## 📅 Agendamento de Cortes
+📅 **Agendamento de Cortes**
 
 Os barbeiros podem visualizar e gerenciar agendamentos de cortes, permitindo organizar melhor o atendimento aos clientes.
+* Criar agendamentos
+* Visualizar horários marcados
+* Organizar agenda de atendimentos
 
-Funcionalidades relacionadas:
-
-Criar agendamentos
-
-Visualizar horários marcados
-
-Organizar agenda de atendimentos
-
-## ✂️ Cadastro de Cortes Personalizados
+✂️ **Cadastro de Cortes Personalizados**
 
 O sistema permite que o barbeiro adicione novos tipos de cortes ao sistema.
+* Corte degradê
+* Corte social
+* Corte na tesoura
+* Cortes personalizados criados pelo barbeiro
 
-Exemplos:
-
-Corte degradê
-
-Corte social
-
-Corte na tesoura
-
-Cortes personalizados criados pelo barbeiro
-
-## 📋 Menu de Cortes Disponíveis
+📋 **Menu de Cortes Disponíveis**
 
 Existe um menu onde é possível visualizar todos os cortes disponíveis na barbearia.
+* Visualizar serviços disponíveis
+* Escolher o corte desejado
+* Facilitar o processo de agendamento
 
-Essa funcionalidade permite:
+## 🛠 Tecnologias Utilizadas
 
-Visualizar serviços disponíveis
-
-Escolher o corte desejado
-
-Facilitar o processo de agendamento
-
-🛠 Tecnologias Utilizadas
-
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
-
-Java
-
-Spring Boot
-
-Spring MVC
-
-Spring Data JPA
-
-HTML / CSS
-
-Maven
-
-Banco de dados H2 / JPA
-
-O Spring Boot é um framework Java muito utilizado para criação de aplicações web e APIs de forma rápida e organizada.
+* **Java 21**
+* **Spring Boot / Spring MVC**
+* **Spring Data JPA**
+* **HTML / CSS**
+* **Maven**
+* **Banco de dados:** MySQL (Windows) / MariaDB (Linux)
 
 ## 📂 Estrutura do Projeto
 
@@ -88,73 +59,134 @@ A aplicação segue uma estrutura comum de projetos Spring Boot:
 ```text
 src
  └── main
-     ├── java
+     ├── java/com/sistema/app
      │   └── controllers
-     │   └── services
-     │   └── repositories
      │   └── models
+     │   └── repository
+     │   └── SistemaBarbeariaApplication.java
      └── resources
-         └── templates
          └── static
+         └── templates
          └── application.properties
 ```
 
-Essa organização separa responsabilidades da aplicação, facilitando manutenção e escalabilidade.
-
 ## 🚀 Como Executar o Projeto
+Pré-requisitos Gerais
+* Ter o Java 21 (JDK) instalado.
 
-1️⃣ Clonar o repositório
+* Clonar o repositório:
 git clone https://github.com/britukk/Project-Barbearia-SENAI.git
 
-2️⃣ Entrar na pasta do projeto
+* Entrar na pasta:
 cd Project-Barbearia-SENAI
 
-3️⃣ Executar o projeto
+🪟  **Rodando no Windows (MySQL)**
 
-OBS: o nome do database é "barbearia"
+No Windows, o projeto utiliza o conector padrão do MySQL configurado no pom.xml.
 
-Se estiver usando Maven:
+Certifique-se de que o MySQL Server está rodando.
 
-mvn spring-boot:run
+Acesse o seu MySQL e crie o banco de dados:
 
-Ou execute a classe principal do projeto pela sua IDE (IntelliJ / Eclipse / VSCode).
+SQL
+CREATE DATABASE barbearia;
+Verifique no arquivo src/main/resources/application.properties se as credenciais correspondem ao seu banco (usuário e senha).
 
-4️⃣ Acessar no navegador
-http://localhost:8080
+Na raiz do projeto, execute:
+
+Bash
+mvnw spring-boot:run
+Acesse no navegador: http://localhost:8080
+
+🐧  **Rodando no Linux (Ubuntu / Debian / Kali)**
+
+Distribuições baseadas em Debian utilizam o MariaDB por padrão. Para rodar sem conflitos de driver ou permissões, siga os passos abaixo:
+
+Inicie o serviço do banco de dados:
+
+Bash
+sudo systemctl start mysql
+Acesse o banco de dados via terminal:
+
+Bash
+sudo mysql -u root -p
+Crie o banco, um usuário dedicado e dê as permissões:
+
+SQL
+CREATE DATABASE barbearia;
+CREATE USER 'app_barbearia'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON barbearia.* TO 'app_barbearia'@'localhost';
+FLUSH PRIVILEGES;
+Modificação Importante (Conflito de Driver):
+Como o Linux usa MariaDB, você pode enfrentar o erro Unknown column 'RESERVED' in 'WHERE'. Para resolver, altere seu application.properties para:
+
+Properties
+spring.datasource.url=jdbc:mariadb://localhost:3306/barbearia
+spring.datasource.username=app_barbearia
+spring.datasource.password=123456
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MariaDBDialect
+E no arquivo pom.xml, substitua a dependência do mysql-connector-j pelo mariadb-java-client.
+
+Rode a aplicação limpando o cache:
+
+Bash
+mvn clean spring-boot:run
+## 🚨 Resolução de Problemas Comuns (Troubleshooting)
+Erro: Command 'mvn' not found
+
+Causa: O Apache Maven não está instalado globalmente.
+
+Solução: Utilize o script do próprio repositório rodando ./mvnw spring-boot:run ou instale o Maven no sistema (sudo apt install maven).
+
+Erro: release version 21 not supported
+
+Causa: O seu sistema está usando uma versão do Java anterior à versão 21 exigida pelo projeto.
+
+Solução: Instale e configure o JDK 21 na sua máquina (sudo apt install openjdk-21-jdk no Linux).
+
+Erro: Access denied for user 'root'@'localhost'
+
+Causa: O banco de dados está recusando a conexão. Isso ocorre porque a senha no application.properties está errada/vazia, ou porque o sistema operacional (Linux) bloqueia o acesso via rede para o usuário root.
+
+Solução: Crie um usuário dedicado no banco de dados (ex: app_barbearia) com senha, conceda os privilégios na tabela barbearia e atualize o arquivo application.properties com essas novas credenciais.
+
 ## 🔮 Melhorias Futuras
+* 🔐 Sistema de login para clientes
 
-Algumas melhorias planejadas para o projeto:
+* 📱 Interface mais moderna
 
-🔐 Sistema de login para clientes
+* 📊 Painel administrativo para barbeiros
 
-📱 Interface mais moderna
+* 📅 Melhor controle de horários disponíveis
 
-📊 Painel administrativo para barbeiros
+* 💳 Possível integração com sistema de pagamentos
 
-📅 Melhor controle de horários disponíveis
-
-💳 Possível integração com sistema de pagamentos
-
-📧 Notificações de agendamento
+* 📧 Notificações de agendamento
 
 ## 🎓 Objetivo do Projeto
-
 Este projeto foi criado com o objetivo de:
 
-Praticar Spring Boot
+* Praticar Spring Boot
 
-Aprender arquitetura MVC
+* Aprender arquitetura MVC
 
-Trabalhar com CRUD
+* Trabalhar com CRUD
 
-Implementar sistema de login
+* Implementar sistema de login
 
-Simular um sistema real de gerenciamento de barbearia
+* Simular um sistema real de gerenciamento de barbearia
 
-## 👨‍💻 Autor
-
+## 👨‍💻 Autores
 Projeto desenvolvido por João Pedro de Brito, Gustavo Alves dos Reis e principalmente por Luis Guilherme Carvalho Valadares para fins de estudo e aprendizado em desenvolvimento backend com Spring Boot.
+
 Links:
+
+João Pedro (britukk)
 https://github.com/britukk
+
+Gustavo (LaBomb4)
 https://github.com/LaBomb4
+
+Luis Guilherme (xXLuisinnXx)
 https://github.com/xXLuisinnXx
